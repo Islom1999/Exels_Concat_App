@@ -1,0 +1,70 @@
+<div class="container">
+    <div class="col-12">
+        <h2 class="my-5 text-center text-primary">Tumanlar Ro'yhati</h2>
+        <table class="table table-hover table-bordered my-5">
+            <thead>
+                <tr class="bg-secondary text-light">
+                    <th scope="col"># ID</th>
+                    <th scope="col">Tuman</th>
+                    <th scope="col">Ism Familiya</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Login</th>
+                    <th scope="col">Parol</th>
+                    <th scope="col">O'chirish</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#if region}}
+                    {{#each region}}
+                        <tr>
+                            <th scope="row">{{_id}}</th>
+                            <td>{{region}}</td>
+                            <td>{{fullName}}</td>
+                            <td>{{phone}}</td>
+                            <td>{{create_at}}</td>
+                            <td>{{login}}</td>
+                            <td>{{password}}</td>
+                            <td>
+                                <form action="/admin/region/delete/{{_id}}" method="POST">
+                                    <button class="btn btn-danger">Delete</button> 
+                                </form>
+                            </td>
+                        </tr>
+                    {{/each}}
+                    {{else}}
+                    <tr>
+                        <td colspan="8"><h2 class="text-center my-5 py-5">Hozircha Malumotlar Yo'q</h2></td>
+                    </tr>
+                {{/if}}
+               
+            </tbody>
+        </table>
+    </div>
+    <div class="col-8 m-auto my-5 py-5">
+        <form action="/admin/region/add" method="POST">
+            <h3 class="text-center text-primary mb-5">Tuman yoki foydalanuvchi qo'shing</h3>
+            <div class="mb-3">
+                <label for="" class="form-label"><h5>Tuman</h5></label>
+                <input required class="form-control" type="text" name="region">
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label"><h5>Foydalanuvchi ism familiyasi</h5></label>
+                <input required class="form-control" type="text" name="fullName">
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label"><h5>Foydalanuvchi tel raqami</h5></label>
+                <input required class="form-control" type="text" name="phone">
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label"><h5>Login</h5></label>
+                <input required class="form-control" type="text" name="login">
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label"><h5>Parol</h5></label>
+                <input required class="form-control" type="password" name="password">
+            </div>
+            <button class="btn btn-lg my-3 btn-primary">Yuklash</button>
+        </form>
+    </div>
+</div>

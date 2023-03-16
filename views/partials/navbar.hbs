@@ -1,0 +1,28 @@
+<nav class="navbar" style="background-color: #e3f2fd;">
+  <div class="container">
+      <ul class="nav py-3 justify-content-center">
+        <li class="nav-item me-5">
+            <a class="btn btn-primary" aria-current="page" href="/">Fayl Yuklash</a>
+        </li>
+        <li class="nav-item me-5">
+            <a class="btn btn-primary" href="/user/files">Yuklagan Fayllariz</a>
+        </li>
+        {{#if isAdmin}}
+        <li class="nav-item me-5">
+            <a class="btn btn-primary" href="/all/files">Tumanlar Yuklagan Fayllari</a>
+        </li>
+        <li class="nav-item me-5">
+            <a class="btn btn-primary" href="/region">Tumanlar</a>
+        </li>
+        <li class="nav-item me-5">
+            <a class="btn btn-primary" href="/exelfile">Asosiy Fayl</a>
+        </li>
+        {{/if}}
+        <li class="nav-item me-5">
+            <form action="/logout" method="POST">
+                <button class="btn btn-danger" >Chiqish</button>
+            </form>
+        </li>
+    </ul>
+  </div>
+</nav>

@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="col-12 text-center py-5">
+        <h2 class="mt-5 text-center text-primary">Asosiy Faylni Yuklab Olish</h2>
+        <h4 class="mb-5 text-center">Asosiy Faylni Joylashuvi: <span class="text-warning">/utils/public{{fileURL}}</span></h4>
+        <a href="{{fileURL}}" class="btn btn-lg btn-primary">Yuklab olish uchun bosing</a>
+    </div>
+    <hr>
+    <div class="col-12 text-center py-5">
+        <h2 class="my-5 text-center text-primary">Asosiy Faylni O'zgartirish</h2>
+        <div class="col-8 m-auto"> 
+            <form action="/admin/exelfile/add" method="POST"  enctype="multipart/form-data">
+                <h2>Fayl yuklang</h2>
+                <input class="form-control form-control-lg my-5" type="file" name="file" required>
+                <button class="btn btn-lg my-3 btn-primary">Yuklash</button>
+            </form>
+        </div>
+    </div>
+    <hr>
+</div>
