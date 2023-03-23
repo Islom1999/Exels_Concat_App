@@ -28,15 +28,53 @@
                                     {{#if status}}
                                         <button class="btn btn-secondary">Qo'shilgan</button> 
                                     {{else}}
-                                        <form action="/admin/file/addexel/{{_id}}" method="POST">
-                                            <button class="btn btn-primary">Qo'shish</button> 
-                                        </form>
+                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#{{_id}}">
+                                            Qo'shish
+                                        </button>
+
+                                        <div class="modal fade" id="{{_id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered">
+                                                <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body text-center">
+                                                    <h4>Faylni umumiy exel faylga qo'shsangiz keyin uni o'zgartira olmaysiz</h4>
+                                                </div>
+                                                <div class="modal-footer justify-content-center">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Qaytish</button>
+                                                    <form action="/admin/file/addexel/{{_id}}" method="POST">
+                                                        <button type="submit" class="btn btn-primary" >Qo'shish</button>
+                                                    </form>
+                                                </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     {{/if}}
                             </td>
                             <td>
-                                <form action="/admin/file/delete/{{_id}}" method="POST">
-                                    <button class="btn btn-danger">Delete</button> 
-                                </form>
+                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#id{{_id}}">
+                                    Delete
+                                </button>
+
+                                <div class="modal fade" id="id{{_id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body text-center">
+                                            <h4>Faylni o'chirsangiz keyin uni qayta tiklay olmaysiz</h4>
+                                        </div>
+                                        <div class="modal-footer justify-content-center">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Qaytish</button>
+                                            <form action="/admin/file/delete/{{_id}}" method="POST">
+                                                <button type="submit" class="btn btn-danger" >O'chirish</button>
+                                            </form>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </td>
                         </tr>
                     {{/each}}

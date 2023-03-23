@@ -9,7 +9,7 @@ const connectDB = require('./config/connect')
 //env config
 require('dotenv').config() 
 // Database Connect
-connectDB()
+connectDB() 
 
 const server = express()
 

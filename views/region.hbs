@@ -26,9 +26,31 @@
                             <td>{{login}}</td>
                             <td>{{password}}</td>
                             <td>
-                                <form action="/admin/region/delete/{{_id}}" method="POST">
+                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#id{{_id}}">
+                                    Delete
+                                </button>
+                                <div class="modal fade" id="id{{_id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body text-center">
+                                            <h4>Tumanni o'chirsangiz keyin u tuman malumotlarini qayta tiklay olmaysiz</h4>
+                                        </div>
+                                        <div class="modal-footer justify-content-center">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Qaytish</button>
+                                            <form action="/admin/region/delete/{{_id}}" method="POST">
+                                                <button type="submit" class="btn btn-danger" >O'chirish</button>
+                                            </form>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {{!-- <form action="/admin/region/delete/{{_id}}" method="POST">
                                     <button class="btn btn-danger">Delete</button> 
-                                </form>
+                                </form> --}}
                             </td>
                         </tr>
                     {{/each}}

@@ -229,7 +229,7 @@ route.get('/exelfile',protectedUser, protectedAdmin, async(req, res) => {
 
         res.render('asosiyFile', {
             isAdmin,
-            fileURL: file[0].fileName
+            fileURL: file[0] ?  file[0].fileName : '/ 404 Error'
         })
 
     }catch(err){
