@@ -5,7 +5,7 @@ const Admin = require('./model/admin')
 
 const admin = {
     fullName: "Karimov Islom",
-    login: "Admin",
+    login: "Abbos",
     password: "123456",
     phone: "+998972446972",
 }

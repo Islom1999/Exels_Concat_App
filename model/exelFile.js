@@ -5,6 +5,10 @@ const exelFiles = mongoose.Schema({
         type: 'string',
         required: true,
     },
+    fileNameExample: {
+        type: 'string',
+        required: true,
+    },
     create_at: {
         type: 'Date',
         default: Date.now()

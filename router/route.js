@@ -15,13 +15,15 @@ const route = Router()
 
 route.get('/', protectedUser, async(req, res) => {
     try{
+        const file = await ExelFile.find().lean()
 
         let isAdmin = false
         if(req.session.isAdmin){
             isAdmin = req.session.isAdmin
         }
         res.render('home', {
-            isAdmin
+            isAdmin,
+            fileURL: file[0] ?  file[0].fileNameExample : false
         })
 
     }catch(err){
@@ -312,12 +314,20 @@ route.post('/admin/exelfile/add',protectedUser, protectedAdmin, upload.single('f
 
         const file = await ExelFile.find().lean()
 
-        fs.unlink(path.join(__dirname, '../', 'utils', 'public', file[0].fileName), (err) => { console.log(err) }); 
+        fs.unlink(path.join(__dirname, '../', 'utils', 'public', file[0] ? file[0].fileName : 'null'), (err) => { console.log(err) }); 
+        fs.unlink(path.join(__dirname, '../', 'utils', 'public', file[0] ? file[0].fileNameExample : 'null'), (err) => { console.log(err) }); 
 
         await ExelFile.deleteMany()
 
+        fs.copyFile(
+            path.join(__dirname, '../', 'utils', 'public', 'upload', req.file.filename ), 
+            path.join(__dirname, '../', 'utils', 'public', 'upload', 'exaple.xlsx' ), (err) => {
+            if (err) throw err;
+        });
+
         await ExelFile.create({
-            fileName: '/upload/' + req.file.filename
+            fileName: '/upload/' + req.file.filename,
+            fileNameExample: '/upload/exaple.xlsx'
         })
 
         req.session.fileName = req.file.filename

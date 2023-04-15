@@ -1,35 +1,47 @@
 <div class="container">
     <div class="row">
+        <div class="col-12 text-center py-5">
+            <h2 class="mt-5 mb-4 text-center text-primary">Topshiriq File</h2>
+            {{#if fileURL}}
+                <a href="{{fileURL}}" class="btn btn-lg btn-primary">Yuklab olish uchun bosing</a>
+                {{else}}
+                <h3 class="mt-5 mb-4 text-center text-danger">Hozircha Topshiriq Yo'q</h3>
+            {{/if}}
+        </div>
         <div class="col-8 text-center m-auto my-5 py-5">
-            <form action="/file/add" method="POST"  enctype="multipart/form-data">
+            {{#if fileURL}}
+            <form action="/file/add" method="POST" enctype="multipart/form-data">
                 <h1>Fayl yuklang</h1>
                 <input class="form-control form-control-lg my-5" type="file" name="file" required>
 
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">
-                Yuklash
+                <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal"
+                    data-bs-target="#staticBackdrop2">
+                    Yuklash
                 </button>
 
                 <!-- Modal -->
-                <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false"
+                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body text-center">
+                                <h4>Faylni yuklasangiz keyin uni o'zgartira olmaysiz</h4>
+                            </div>
+                            <div class="modal-footer justify-content-center">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Qaytish</button>
+                                <button type="submit" class="btn btn-primary">Yuklash</button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="modal-body text-center">
-                        <h4>Faylni yuklasangiz keyin uni o'zgartira olmaysiz</h4>
-                    </div>
-                    <div class="modal-footer justify-content-center">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Qaytish</button>
-                        <button type="submit" class="btn btn-primary" >Yuklash</button>
-                    </div>
-                    </div>
-                </div>
                 </div>
 
             </form>
-            
+            {{/if}}
         </div>
     </div>
 </div>
